@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+.active{
+background:blueviolet;
+color:white;
+padding:5px;
+}
+    </style>
+</head>
+<body>
+
+<div id="root">
+<!-- <ul>
+    <li>
+        <a :class="classname" :href="link1.url" :title="link1.title">{{link1.name}}</a>
+    </li>
+</ul> -->
+<!--
+<ul>
+    <li v-for="skill,i in skills" v-if="skill.experience>5">
+       {{i+1}} {{skill.name}}({{skill.experience}})<br/>
+{{skill.job}}
+
+    </li>
+</ul> -->
+
+<!-- <p v-if="show">
+<h>its true state ment show</h>
+
+</p>
+
+<p v-else>
+noooo
+</p> -->
+
+
+</div>
+
+
+    <script type="text/javascript" src="vue.js">
+        </script>
+
+<script type="text/javascript">
+var app = new Vue({
+el:'#root',
+data:{
+// link1:{
+// title:'Go to twitter',
+// name:'Twitter',
+// url:'http://twitter.com'
+
+// },
+// // classname:"active"
+
+// skills:
+// [
+//     {name:"HTMl",experience:6, job:"google"},
+//     {name:"javascript",experience:2, job:"microsoft"},
+//     {name:"HTMl",experience:2, job:"google"},
+//     {name:"javascript",experience:2, job:"microsoft"},
+//     {name:"HTMl",experience:9, job:"google"},
+//     {name:"javascript",experience:2, job:"microsoft"}
+// ]
+show:true
+
+
+},
+
+
+
+})
+</script>
+
+</body>
+</html>
