@@ -5,17 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style type="text/css">
+    <!-- <style type="text/css">
 .active{
 background:blueviolet;
 color:white;
 padding:5px;
 }
-    </style>
+    </style> -->
 </head>
 <body>
 
 <div id="root">
+
+<ul>
+<li v-for="skill,i in skills">
+({{i+1}}){{skill}}<button @click="removeskill(i)"> -</button>
+</li>
+</ul>
+<input type="text"v-model="newskill">
+<button v-on:click="addnewskill()" >add</button>
 <!-- <ul>
     <li>
         <a :class="classname" :href="link1.url" :title="link1.title">{{link1.name}}</a>
@@ -50,6 +58,8 @@ noooo
 var app = new Vue({
 el:'#root',
 data:{
+    newskill:"",
+    skills:["JAVASCRIPT", "React JS ", "Laravel", "Vue js"]
 // link1:{
 // title:'Go to twitter',
 // name:'Twitter',
@@ -57,6 +67,23 @@ data:{
 
 // },
 // // classname:"active"
+
+},
+methods:{
+    addnewskill() {
+
+            this.skills.push(this.newskill)
+        this.newskill='';
+    },
+    removeskill(i) {
+
+this.skills.splice(i,1)
+
+   }
+
+
+
+}
 
 // skills:
 // [
@@ -66,11 +93,11 @@ data:{
 //     {name:"javascript",experience:2, job:"microsoft"},
 //     {name:"HTMl",experience:9, job:"google"},
 //     {name:"javascript",experience:2, job:"microsoft"}
-// ]
-show:true
+// // ]
+// show:true
 
 
-},
+
 
 
 
