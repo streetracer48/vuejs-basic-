@@ -17,13 +17,13 @@ padding:5px;
 
 <div id="root">
 
-<ul>
+<!-- <ul>
 <li v-for="skill,i in skills">
 ({{i+1}}){{skill}}<button @click="removeskill(i)"> -</button>
 </li>
 </ul>
 <input type="text"v-model="newskill">
-<button v-on:click="addnewskill()" >add</button>
+<button v-on:click="addnewskill()" >add</button> -->
 <!-- <ul>
     <li>
         <a :class="classname" :href="link1.url" :title="link1.title">{{link1.name}}</a>
@@ -46,6 +46,12 @@ padding:5px;
 <p v-else>
 noooo
 </p> -->
+<ul>
+        <li v-for="allpayment in allpayments">
+          {{allpayment.name}}
+
+        </li>
+    </ul>
 
 
 </div>
@@ -58,8 +64,18 @@ noooo
 var app = new Vue({
 el:'#root',
 data:{
-    newskill:"",
-    skills:["JAVASCRIPT", "React JS ", "Laravel", "Vue js"]
+
+    allpayments:[
+{name:"gas", amount:500, type:true},
+{name:"water", amount:600, type:true},
+{name:"electricity", amount :704, type:false},
+{name:"dish",amount :34, type:false}
+]
+
+
+}
+    // newskill:"",
+    // skills:["JAVASCRIPT", "React JS ", "Laravel", "Vue js"]
 // link1:{
 // title:'Go to twitter',
 // name:'Twitter',
@@ -68,22 +84,34 @@ data:{
 // },
 // // classname:"active"
 
-},
-methods:{
-    addnewskill() {
+// methods:{
+//     addnewskill() {
+//         console.log(this.skills[0])
+//         if(this.newskill == ''){
 
-            this.skills.push(this.newskill)
-        this.newskill='';
-    },
-    removeskill(i) {
+//  console.log('please input something')
+//         }
 
-this.skills.splice(i,1)
+//          else if (this.newskill =='Laravel')
+//         {
+//             console.log('please input something')
 
-   }
+//         }
+
+//         else{
+//             this.skills.push(this.newskill)
+//         this.newskill='';
+
+//         }
+//     },
+//     removeskill(i) {
+
+// this.skills.splice(i,1)
+
+//    }
 
 
 
-}
 
 // skills:
 // [
@@ -95,11 +123,6 @@ this.skills.splice(i,1)
 //     {name:"javascript",experience:2, job:"microsoft"}
 // // ]
 // show:true
-
-
-
-
-
 
 })
 </script>
