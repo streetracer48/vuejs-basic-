@@ -1,162 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <!-- <style type="text/css">
-.active{
-background:blueviolet;
-color:white;
-padding:5px;
-}
-    </style> -->
+	<title>Vue Js Bangla Tutorial</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
 <div id="root">
 
-<!-- <ul>
-<li v-for="skill,i in skills">
-({{i+1}}){{skill}}<button @click="removeskill(i)"> -</button>
-</li>
-</ul>
-<input type="text"v-model="newskill">
-<button v-on:click="addnewskill()" >add</button> -->
-<!-- <ul>
-    <li>
-        <a :class="classname" :href="link1.url" :title="link1.title">{{link1.name}}</a>
-    </li>
-</ul> -->
-<!--
-<ul>
-    <li v-for="skill,i in skills" v-if="skill.experience>5">
-       {{i+1}} {{skill.name}}({{skill.experience}})<br/>
-{{skill.job}}
-
-    </li>
-</ul> -->
-
-<!-- <p v-if="show">
-<h>its true state ment show</h>
-
-</p>
-
-<p v-else>
-noooo
-</p> -->
-<ul>
-    <h1>paid payment</h1>
-        <li v-for="allpayment in allpayments">
-          {{allpayment.name}}
-
-        </li>
-    </ul>
-    <ul>
-        <h1>non paid payment</h1>
-
-            <li v-for="unpay in unpayment">
-              {{unpay.name}}
-
-            </li>
-        </ul>
-        <h1>total payment is :{{total}}</h1>
+	<panel title="This is panel title">
+		This is panel content1 This is panel content This is panel content This is panel content
+	</panel>
 
 
 </div>
 
-
-    <script type="text/javascript" src="vue.js">
-        </script>
-
+<script type="text/javascript" src="vue.js"></script>
 <script type="text/javascript">
-var app = new Vue({
-el:'#root',
-data:{
+	Vue.component("panel", {
+		template: `
+			<div class="panel" v-if="show">
+				<div class="panelTitle">
+					{{title}}
+					<div class="close" @click="show = false">x</div>
+				</div>
+				<div class="panelContent">
+					<p>
+						<slot></slot>
+					</p>
+				</div>
+			</div>
+		`,
+		props: ['title', 'content'],
 
-    allpayments:[
-{name:"gas", amount:500, type:true},
-{name:"water", amount:600, type:true},
-{name:"electricity", amount :704, type:false},
-{name:"dish",amount :34, type:true}
-]
-},
-computed: {
-unpayment:function()
-    {
-return this.allpayments.filter(p =>
-    {
-    return !p.type;
-
-    })
-},
-
-total:function() {
-var sum =0;
-
-for(var i=0; i<this.allpayments.length; i++)
-{
-    sum+=this.allpayments[i].amount
-}
-return sum
+		data: function(){
+			return {
+				show: true
+			}
+		}
+	});
 
 
+	var app = new Vue({
+		el: "#root",
+		data: {
+		}
+	});
 
-}
-
-}
-    // newskill:"",
-    // skills:["JAVASCRIPT", "React JS ", "Laravel", "Vue js"]
-// link1:{
-// title:'Go to twitter',
-// name:'Twitter',
-// url:'http://twitter.com'
-
-// },
-// // classname:"active"
-
-// methods:{
-//     addnewskill() {
-//         console.log(this.skills[0])
-//         if(this.newskill == ''){
-
-//  console.log('please input something')
-//         }
-
-//          else if (this.newskill =='Laravel')
-//         {
-//             console.log('please input something')
-
-//         }
-
-//         else{
-//             this.skills.push(this.newskill)
-//         this.newskill='';
-
-//         }
-//     },
-//     removeskill(i) {
-
-// this.skills.splice(i,1)
-
-//    }
-
-
-
-
-// skills:
-// [
-//     {name:"HTMl",experience:6, job:"google"},
-//     {name:"javascript",experience:2, job:"microsoft"},
-//     {name:"HTMl",experience:2, job:"google"},
-//     {name:"javascript",experience:2, job:"microsoft"},
-//     {name:"HTMl",experience:9, job:"google"},
-//     {name:"javascript",experience:2, job:"microsoft"}
-// // ]
-// show:true
-
-})
 </script>
 
 </body>
